@@ -1,6 +1,7 @@
 # WDBlurredViewController
 
 **WDBlurredViewController** is a subclass of UIViewController has blurred background view.
+You can generate the blurred view controller easily with **WDBlurredViewController**.
 
 ### Screenshot
 ![Screenshot01](https://raw.githubusercontent.com/KimDarren/WDBlurredViewController/master/Screenshots/IMG_6389.PNG)
@@ -27,3 +28,8 @@ typedef NS_ENUM(NSInteger, UIBlurEffectStyle) {
     UIBlurEffectStyleDark
 }
 ```
+
+### Todo's
+
+- Add tint color property.
+- Add transition style.
