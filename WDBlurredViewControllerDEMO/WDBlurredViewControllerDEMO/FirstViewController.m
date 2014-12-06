@@ -11,6 +11,7 @@
 - (IBAction)showBlurredModal:(id)sender
 {
     SecondViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:SecondViewControllerId];
+    vc.blurStyle = UIBlurEffectStyleDark;
     [self presentViewController:vc animated:NO completion:nil];
 }
 
