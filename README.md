@@ -29,7 +29,18 @@ typedef NS_ENUM(NSInteger, UIBlurEffectStyle) {
 }
 ```
 
+### How to change the background color.
+
+- Set the background color.
+```
+vc.backgroundColor = [UIColor yellowColor];
+```
+
+- Set the alpha value of background color (Default : .5f)
+```
+vc.backgroundAlpha = 0.3f;
+```
+
 ### Todo's
 
-- Add tint color property.
 - Add transition style.
