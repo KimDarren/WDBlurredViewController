@@ -1,12 +1,25 @@
 #import "WDBlurredViewController.h"
 
+@interface WDBlurredViewController ()
+
+@property (strong, nonatomic) UIVisualEffectView *visualEffectView;
+
+@end
+
 @implementation WDBlurredViewController
+
+- (void)initialize
+{
+    self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.backgroundColor = [UIColor clearColor];
+    self.backgroundAlpha = 0.5f;
+}
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self initialize];
     }
     return self;
 }
@@ -15,7 +28,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self initialize];
     }
     return self;
 }
@@ -26,11 +39,24 @@
     
     // Insert blurred view
     UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:_blurStyle];
-    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    visualEffectView.frame = self.view.bounds;
-    [self.view insertSubview:visualEffectView atIndex:0];
+    _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    _visualEffectView.frame = self.view.bounds;
+    _visualEffectView.backgroundColor = [_backgroundColor colorWithAlphaComponent:_backgroundAlpha];
+    [self.view insertSubview:_visualEffectView atIndex:0];
 
     self.view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    _backgroundColor = backgroundColor;
+    _visualEffectView.backgroundColor = [_backgroundColor colorWithAlphaComponent:_backgroundAlpha];
+}
+
+- (void)setBackgroundAlpha:(CGFloat)backgroundAlpha
+{
+    _backgroundAlpha = backgroundAlpha;
+    _visualEffectView.backgroundColor = [_backgroundColor colorWithAlphaComponent:_backgroundAlpha];
 }
 
 @end
